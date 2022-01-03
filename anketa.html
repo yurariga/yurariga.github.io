@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style></style>
+    <script type="text/javascript">
+      function calculateHours() {
+        var classes = document.getElementById("input1").value;
+        var practice = document.getElementById("input2").value;
+        var students = document.getElementById("input3").value;
+        if (students != "") {
+          if (students != "0") {
+            if (classes != "") {
+              classes = parseInt(classes);
+              document.getElementById("classes").innerHTML =
+                classes + " hours for classes";
+            } else {
+              //classes = 0;
+              document.getElementById("classes").innerHTML =
+                "Zero hours for classes";
+            }
+            if (classes != "") {
+              consultHours = parseInt(classes);
+              consultHours = consultHours * 0.1;
+              document.getElementById("consult").innerHTML =
+                consultHours + " hours for consultations";
+            } else {
+              consultHours = 0;
+              document.getElementById("classes").innerHTML =
+                "Zero hours for consultations";
+            }
+            if (classes != "") {
+              examHours = parseInt(students) * 0.5;
+              document.getElementById("exam").innerHTML =
+                examHours + " hours for exam";
+            } else {
+              classes = 0;
+              examHours = 0;
+              document.getElementById("exam").innerHTML = "Zero hours for exam";
+            }
+
+            if (practice != "") {
+              practice = parseInt(practice);
+              practiceHours = parseInt(students) * 0.25;
+              document.getElementById("practice").innerHTML =
+                practice + " hours for practice classes";
+              document.getElementById("practiceTest").innerHTML =
+                practiceHours + " hours for practice test";
+            } else {
+              //practice = 0;
+              practiceHours = 0;
+              document.getElementById("practice").innerHTML =
+                practice + "Zero hours for practice classes";
+              document.getElementById("practiceTest").innerHTML =
+                "Zero hours for practice test";
+            }
+
+            if (practice != "") {
+              practiceExamHours = (
+                parseInt(students) * parseFloat(1 / 3)
+              ).toFixed(2);
+              document.getElementById("practiceExam").innerHTML =
+                practiceExamHours + " hours for practice exam";
+            } else {
+              practice = 0;
+              practiceExamHours = 0;
+              document.getElementById("practiceExam").innerHTML =
+                "Zero hours for practice exam";
+            }
+
+            totalHours = (
+              parseFloat(classes) +
+              parseFloat(consultHours) +
+              parseFloat(examHours) +
+              parseFloat(practice) +
+              parseFloat(practiceHours) +
+              parseFloat(practiceExamHours)
+            ).toFixed(2);
+            document.getElementById("totalHours").innerHTML =
+              totalHours + " hour total load";
+          } else {
+            document.getElementById("totalHours").innerHTML =
+              "Zero hour total load";
+          }
+        }
+        else {
+          document.getElementById("totalHours").innerHTML =
+              "Zero hour total load";
+        }
+      }
+
+      function reload() {
+        reload = location.reload();
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Practice work, Task 5. Load calculation using JavaScript</h1>
+    <a href="./index.html"><h2>hyperlink to Task 4</h2></a>
+    <h2>Please input valid data</h2>
+     <label for="input1">
+      <h3>Classes (hours)</h3>
+    </label>
+    <input id="input1" placeholder="Input total hours" />
+
+    <label for="input2">
+      <h3>Practice (hours)</h3>
+    </label>
+    <input id="input2" placeholder="Input total hours" />
+
+    <label for="input3">
+      <h3>Total Students</h3>
+    </label>
+    <input id="input3" placeholder="Input total active students" />
+
+    <h2>Calculations</h2>
+    <button type="submit" onclick="calculateHours()">Calculate</button>
+
+    <button type="submit" name="reload" onclick="reload()">Reload</button>
+    <div id="div1">
+      <div class="gallery">
+        <div id="classes">0</div>
+        <div id="consult">0</div>
+        <div id="exam">0</div>
+        <div id="practice">0</div>
+        <div id="practiceTest">0</div>
+        <div id="practiceExam">0</div>
+        <h2>Result</h2>
+        <h3 id="totalHours">0 hour total load</h3>
+      </div>
+    </div>
+  </body>
+</html>
