@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .nav {
+        display: inline;
+      }
+      .gallery {
+        /* margin: 5px;
+        border: 1px solid #ccc; */
+        float: left;
+        position: relative;
+        width: 10%;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      .image {
+        float: left;
+      }
+
+      .image img {
+        width: 100%;
+        height: 4.5in;
+      }
+
+      div.desc {
+        padding: 5px;
+        text-align: left;
+      }
+
+      div.cont {
+        padding-bottom: 150px;
+      }
+
+    </style>
+    <script type="text/javascript">
+      function getImagesByAlt() {
+        var allImages = document.getElementsByTagName("img");
+        var x = 0;
+
+        myAlt = document.getElementById("mySearch").value;
+
+        for (var i = 0, len = allImages.length; i < len; ++i) {
+          let altText = allImages[i].alt;
+          if (altText.indexOf(myAlt) !== -1) {
+            x = x + 1;
+            //addElement();
+            let parentElement1 = document.getElementById("div1");
+            let newElement1 = document.createElement("img");
+            newElement1.setAttribute("src", allImages[i].src);
+            newElement1.setAttribute("width", "600");
+            newElement1.setAttribute("height", "400");
+            parentElement1.appendChild(newElement1);
+          }
+        
+        }
+        if (x == 0) {
+            alert("Nothing Found")
+        }
+      }
+
+    function reload() {
+        reload = location.reload();
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Jurijs test page</h1>
+    <h2 class="desc">Java Script usage</h2>
+
+    <h2>Image database</h2>
+    <div class="nav">
+      <div class="gallery">
+        <a target="_blank" href="./images/audi1.jpg">
+          <img
+            src="./images/audi1.jpg"
+            alt="Audi A7 2018"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Audi A7 2018</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/audi2.jpg">
+          <img
+            src="./images/audi2.jpg"
+            alt="Audi A5 2022"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Audi A5 2022</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/audi3.jpg">
+          <img
+            src="./images/audi3.jpg"
+            alt="Audi Q7 2019"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Audi Q7 2019</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/bmw1.jpg">
+          <img
+            src="./images/bmw1.jpg"
+            alt="Bmw 325 2018"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Bmw 325 2018</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/bmw2.jpg">
+          <img
+            src="./images/bmw2.jpg"
+            alt="Bmw Proto 2023"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Bmw Proto 2023</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/bmw2.jpg">
+          <img
+            src="./images/bmw3.jpg"
+            alt="Bmw 225 2019"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Bmw 225 2019</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/volvo1.jpg">
+          <img
+            src="./images/volvo1.jpg"
+            alt="Volo V40 2021"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Volo V40 2021</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/volvo2.jpg">
+          <img
+            src="./images/volvo2.jpg"
+            alt="Volvo XC90 2016"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Volvo XC90 2016</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/volvo3.jpg">
+          <img
+            src="./images/volvo3.jpg"
+            alt="Volvo V70 2018"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Volvo V70 2018</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./images/kia1.jpg">
+          <img
+            src="./images/kia1.jpg"
+            alt="Kia Model 2015"
+            width="150"
+            height="100"
+          />
+        </a>
+        <div class="desc">Volvo V70 2018</div>
+      </div>
+    </div>
+
+
+
+
+  
+    
+    <label for="mySearch">
+      <h2>Search for images by keyword</h2>
+    </label>
+    <input id="mySearch" type="search" placeholder="Enter keyword" />
+    <button
+      type="submit"
+      name="Search"
+      aria-label="Search Image"
+      onclick="getImagesByAlt()"
+    >
+      Search
+    </button>
+
+    <button
+      type="submit"
+      name="Remove"
+      aria-label="Remove search results"
+      onclick="reload()"
+    >
+      Remove results
+    </button>
+
+    <h2>Found results</h2>
+    <div id="div1">
+      <div class="gallery">
+  
+      </div>
+    </div>
+
+</body>
+</html>
